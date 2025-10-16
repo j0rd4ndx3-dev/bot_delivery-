@@ -8,7 +8,11 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
 # ---------- CONFIG ----------
-TOKEN = "7988204764:AAFX5kMW--DXO9IBYClfF-PcG0PXoS8bGoA" # <- pega aquí el token que te dio @BotFather
+import os
+TOKEN = os.environ.get("TOKEN")
+if not TOKEN:
+    raise SystemExit("ERROR: la variable de entorno TOKEN no está definida. Define TOKEN antes de ejecutar el bot.")
+
 EXCEL_FILE = "ganancias_delivery.xlsx"
 # ----------------------------
 
